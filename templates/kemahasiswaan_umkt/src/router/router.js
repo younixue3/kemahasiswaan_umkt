@@ -15,6 +15,14 @@ const routes = [
         path: '',
         component: DashboardPage,
       },
+        {
+        path: 'prestasi-penghargaan',
+        component: DashboardPage,
+      },
+        {
+        path: 'prestasi-seminar',
+        component: DashboardPage,
+      },
       // {
       //   path: '/form',
       //   component: FormPage,
@@ -31,7 +39,7 @@ const routes = [
 
 const router = new VueRouter({
   routes,
-  // linkActiveClass: 'is-active'
+  linkActiveClass: 'is-active'
 })
 
 // router.beforeEach((to, from, next) => {

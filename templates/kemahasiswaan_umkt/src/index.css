@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .is-active {
+    background-color: rgb(12 74 110);
+    color: white
+  }
+}
