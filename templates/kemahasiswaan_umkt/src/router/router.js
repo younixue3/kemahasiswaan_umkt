@@ -1,31 +1,32 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import DashboardLayout from "@/views/layout/DashboardLayout";
+import DashboardPage from "@/views/dashboard/DashboardPage";
 
 Vue.use(VueRouter)
 
 const routes = [
-  // {
-  //   path: '/',
-  //   name: 'dashboard',
-  //   component: LayoutView,
-  //   children: [
-  //     {
-  //       path: '',
-  //       component: HomePage,
-  //       meta: { requiresAuth: true },
-  //     },
-  //     {
-  //       path: '/form',
-  //       component: FormPage,
-  //       meta: { requiresAuth: true },
-  //     },
-  //     {
-  //       path: '/approval',
-  //       component: SearchPage,
-  //       meta: { requiresAuth: true },
-  //     },
-  //   ]
-  // },
+  {
+    path: '/',
+    name: 'dashboard',
+    component: DashboardLayout,
+    children: [
+      {
+        path: '',
+        component: DashboardPage,
+      },
+      // {
+      //   path: '/form',
+      //   component: FormPage,
+      //   meta: { requiresAuth: true },
+      // },
+      // {
+      //   path: '/approval',
+      //   component: SearchPage,
+      //   meta: { requiresAuth: true },
+      // },
+    ]
+  },
 ]
 
 const router = new VueRouter({
