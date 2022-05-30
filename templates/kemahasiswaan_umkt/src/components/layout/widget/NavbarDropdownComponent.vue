@@ -14,7 +14,7 @@
                     </span>
                 </div>
             </div>
-            <ul class="bg-gray-200 text-sm rounded-lg my-2 overflow-hidden truncate transition-all ease-in-out" :class="dropactive ? 'h-20' : 'h-0'">
+            <ul class="bg-gray-200 text-sm rounded-lg my-2 overflow-hidden truncate transition-all ease-in-out" :class="dropactive ? height : 'h-0'">
               <div class="grid grid-cols-1 gap-2 p-2">
                 <slot name="item"></slot>
               </div>
@@ -31,6 +31,7 @@ export default {
           dropactive: false
       }
   },
+  props: ['height'],
   methods: {
     dropdownactive: function () {
             this.dropactive = !this.dropactive;

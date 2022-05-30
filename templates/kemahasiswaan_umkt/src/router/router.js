@@ -2,6 +2,9 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import DashboardLayout from "@/views/layout/DashboardLayout";
 import DashboardPage from "@/views/dashboard/DashboardPage";
+import PenghargaanPage from "@/views/dashboard/prestasi/PenghargaanPage";
+import WorkshopPage from "@/views/dashboard/prestasi/WorkshopPage";
+import OrganisasiPage from "@/views/dashboard/prestasi/OrganisasiPage";
 
 Vue.use(VueRouter)
 
@@ -17,11 +20,15 @@ const routes = [
       },
         {
         path: 'prestasi-penghargaan',
-        component: DashboardPage,
+        component: PenghargaanPage,
       },
         {
         path: 'prestasi-seminar',
-        component: DashboardPage,
+        component: WorkshopPage,
+      },
+        {
+        path: 'prestasi-organisasi',
+        component: OrganisasiPage,
       },
       // {
       //   path: '/form',

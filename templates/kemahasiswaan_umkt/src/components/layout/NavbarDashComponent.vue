@@ -14,12 +14,12 @@
       <button @click="CloseBar()" type="button"
               class="transition-all bg-gray-700 shrink-0 -mr-3 w-10 h-10 text-white rounded-lg ease-in-out duration-500 z-50 m-auto -mr-5">
         <!-- Heroicon name: outline/x -->
-        <i class=""></i>
+        <font-awesome-icon :icon="collapsed ? 'fas fa-bars' : 'fas fa-times'" />
       </button>
     </div>
     <div class="text-lg font-normal tracking-tight">
       <div class="py-5 px-1 py-2">
-        <NavbarDropdownComponent>
+        <NavbarDropdownComponent height="h-[7.3rem]">
           <template #group-icon>
             <font-awesome-icon icon="fas fa-graduation-cap" />
           </template>
@@ -34,6 +34,10 @@
             <router-link to="/prestasi-seminar" class="px-2 rounded-md">
               <button class="my-1 cursor-pointer">
                 <span>Seminar/Workshop/Keahlian</span></button>
+            </router-link>
+            <router-link to="/prestasi-organisasi" class="px-2 rounded-md">
+              <button class="my-1 cursor-pointer">
+                <span>Organisasi/Kepanitiaan</span></button>
             </router-link>
           </template>
         </NavbarDropdownComponent>

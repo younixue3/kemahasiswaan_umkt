@@ -1,5 +1,5 @@
 <template>
-  <Pie :chart-data="chartData"/>
+  <Pie :chart-data="chartData" :chart-options="chartOptions" :height="height"/>
 </template>
 
 <script>
@@ -19,10 +19,6 @@ export default {
     chartOptions: {
       type: Object,
       required: true
-    },
-    width: {
-      type: Number,
-      default: 400
     },
     height: {
       type: Number,
