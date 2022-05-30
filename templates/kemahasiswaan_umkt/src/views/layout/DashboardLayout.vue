@@ -3,7 +3,7 @@
      <div class="flex w-full">
         <NavbarDashComponent />
         <div class="min-h-screen w-full px-10 py-5">
-            <router-view></router-view>
+          <router-view></router-view>
         </div>
     </div>
   </div>
