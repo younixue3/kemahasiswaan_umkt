@@ -6,91 +6,120 @@
           <div class="col-span-2">
             <label>Event</label>
             <div>
-              <input class="bg-white w-full rounded-md py-2 pl-5 pr-3 shadow-sm focus:outline-none border border-gray-300 focus:border-sky-500 focus:ring-sky-500 focus:ring-1 font-semibold" type="text" name="event">
+              <input
+                  class="bg-white w-full rounded-md py-2 pl-5 pr-3 shadow-sm focus:outline-none border border-gray-300 focus:border-sky-500 focus:ring-sky-500 focus:ring-1 font-semibold"
+                  type="text" name="event">
             </div>
           </div>
           <div class="col-span-2">
             <label>URL Kegiatan</label>
             <div>
-              <input class="bg-white w-full rounded-md py-2 pl-5 pr-3 shadow-sm focus:outline-none border border-gray-300 focus:border-sky-500 focus:ring-sky-500 focus:ring-1 font-semibold" type="text" name="url_kegiatan">
+              <input
+                  class="bg-white w-full rounded-md py-2 pl-5 pr-3 shadow-sm focus:outline-none border border-gray-300 focus:border-sky-500 focus:ring-sky-500 focus:ring-1 font-semibold"
+                  type="text" name="url_kegiatan">
             </div>
           </div>
           <div class="col-span-2">
             <label>Peyelenggara</label>
             <div>
-              <input class="bg-white w-full rounded-md py-2 pl-5 pr-3 shadow-sm focus:outline-none border border-gray-300 focus:border-sky-500 focus:ring-sky-500 focus:ring-1 font-semibold" type="text" name="penyelenggara">
+              <input
+                  class="bg-white w-full rounded-md py-2 pl-5 pr-3 shadow-sm focus:outline-none border border-gray-300 focus:border-sky-500 focus:ring-sky-500 focus:ring-1 font-semibold"
+                  type="text" name="penyelenggara">
             </div>
           </div>
           <div>
             <label>Lingkup/Tingkat</label>
             <div>
-              <input class="bg-white w-full rounded-md py-2 pl-5 pr-3 shadow-sm focus:outline-none border border-gray-300 focus:border-sky-500 focus:ring-sky-500 focus:ring-1 font-semibold" type="text" name="lingkup_tingkat">
+              <input
+                  class="bg-white w-full rounded-md py-2 pl-5 pr-3 shadow-sm focus:outline-none border border-gray-300 focus:border-sky-500 focus:ring-sky-500 focus:ring-1 font-semibold"
+                  type="text" name="lingkup_tingkat">
             </div>
           </div>
           <div>
             <label>Jumlah Negara Peserta</label>
             <div>
-              <input class="bg-white w-full rounded-md py-2 pl-5 pr-3 shadow-sm focus:outline-none border border-gray-300 focus:border-sky-500 focus:ring-sky-500 focus:ring-1 font-semibold" type="number" name="jumlah_negara">
+              <input
+                  class="bg-white w-full rounded-md py-2 pl-5 pr-3 shadow-sm focus:outline-none border border-gray-300 focus:border-sky-500 focus:ring-sky-500 focus:ring-1 font-semibold"
+                  type="number" name="jumlah_negara">
             </div>
           </div>
           <div class="col-span-2">
             <label>Kategori</label>
             <div>
-              <input class="bg-white w-full rounded-md py-2 pl-5 pr-3 shadow-sm focus:outline-none border border-gray-300 focus:border-sky-500 focus:ring-sky-500 focus:ring-1 font-semibold" type="text" name="kategori">
+              <input
+                  class="bg-white w-full rounded-md py-2 pl-5 pr-3 shadow-sm focus:outline-none border border-gray-300 focus:border-sky-500 focus:ring-sky-500 focus:ring-1 font-semibold"
+                  type="text" name="kategori">
             </div>
           </div>
           <div>
             <label>Prestasi yang diraih</label>
             <div>
-              <input class="bg-white w-full rounded-md py-2 pl-5 pr-3 shadow-sm focus:outline-none border border-gray-300 focus:border-sky-500 focus:ring-sky-500 focus:ring-1 font-semibold" type="text" name="prestasi_diraih">
+              <input
+                  class="bg-white w-full rounded-md py-2 pl-5 pr-3 shadow-sm focus:outline-none border border-gray-300 focus:border-sky-500 focus:ring-sky-500 focus:ring-1 font-semibold"
+                  type="text" name="prestasi_diraih">
             </div>
           </div>
           <div>
             <label>Ekuivalensi</label>
             <div>
-              <input class="bg-white w-full rounded-md py-2 pl-5 pr-3 shadow-sm focus:outline-none border border-gray-300 focus:border-sky-500 focus:ring-sky-500 focus:ring-1 font-semibold" type="text" name="ekuivalensi">
+              <input
+                  class="bg-white w-full rounded-md py-2 pl-5 pr-3 shadow-sm focus:outline-none border border-gray-300 focus:border-sky-500 focus:ring-sky-500 focus:ring-1 font-semibold"
+                  type="text" name="ekuivalensi">
             </div>
           </div>
           <div class="col-span-2">
             <label>Tempat</label>
             <div>
-              <input class="bg-white w-full rounded-md py-2 pl-5 pr-3 shadow-sm focus:outline-none border border-gray-300 focus:border-sky-500 focus:ring-sky-500 focus:ring-1 font-semibold" type="text" name="tempat">
+              <input
+                  class="bg-white w-full rounded-md py-2 pl-5 pr-3 shadow-sm focus:outline-none border border-gray-300 focus:border-sky-500 focus:ring-sky-500 focus:ring-1 font-semibold"
+                  type="text" name="tempat">
             </div>
           </div>
           <div>
             <label>Tanggal Mulai</label>
             <div>
-              <input class="bg-white w-full rounded-md py-2 pl-5 pr-3 shadow-sm focus:outline-none border border-gray-300 focus:border-sky-500 focus:ring-sky-500 focus:ring-1 font-semibold" type="date" name="tanggal_mulai">
+              <input
+                  class="bg-white w-full rounded-md py-2 pl-5 pr-3 shadow-sm focus:outline-none border border-gray-300 focus:border-sky-500 focus:ring-sky-500 focus:ring-1 font-semibold"
+                  type="date" name="tanggal_mulai">
             </div>
           </div>
           <div>
             <label>Tanggal Selesai</label>
             <div>
-              <input class="bg-white w-full rounded-md py-2 pl-5 pr-3 shadow-sm focus:outline-none border border-gray-300 focus:border-sky-500 focus:ring-sky-500 focus:ring-1 font-semibold" type="date" name="tanggal_selesai">
+              <input
+                  class="bg-white w-full rounded-md py-2 pl-5 pr-3 shadow-sm focus:outline-none border border-gray-300 focus:border-sky-500 focus:ring-sky-500 focus:ring-1 font-semibold"
+                  type="date" name="tanggal_selesai">
             </div>
           </div>
           <div class="col-span-2">
             <label>Deskripsi</label>
             <div>
-              <textarea class="bg-white w-full rounded-md py-2 pl-5 pr-3 shadow-sm focus:outline-none border border-gray-300 focus:border-sky-500 focus:ring-sky-500 focus:ring-1 font-semibold" name="deskripsi"></textarea>
+              <textarea
+                  class="bg-white w-full rounded-md py-2 pl-5 pr-3 shadow-sm focus:outline-none border border-gray-300 focus:border-sky-500 focus:ring-sky-500 focus:ring-1 font-semibold"
+                  name="deskripsi"></textarea>
             </div>
           </div>
           <div>
             <label>Bukti</label>
             <div>
-              <input class="bg-white w-full rounded-md py-2 pl-5 pr-3 shadow-sm focus:outline-none border border-gray-300 focus:border-sky-500 focus:ring-sky-500 focus:ring-1 font-semibold" type="file" name="bukti">
+              <input
+                  class="bg-white w-full rounded-md py-2 pl-5 pr-3 shadow-sm focus:outline-none border border-gray-300 focus:border-sky-500 focus:ring-sky-500 focus:ring-1 font-semibold"
+                  type="file" name="bukti">
             </div>
           </div>
           <div>
             <label>Foto Kegiatan</label>
             <div>
-              <input class="bg-white w-full rounded-md py-2 pl-5 pr-3 shadow-sm focus:outline-none border border-gray-300 focus:border-sky-500 focus:ring-sky-500 focus:ring-1 font-semibold" type="file" name="foto_kegiatan">
+              <input
+                  class="bg-white w-full rounded-md py-2 pl-5 pr-3 shadow-sm focus:outline-none border border-gray-300 focus:border-sky-500 focus:ring-sky-500 focus:ring-1 font-semibold"
+                  type="file" name="foto_kegiatan">
             </div>
           </div>
           <div>
             <label>Tim Individu</label>
             <div>
-              <select v-model="status" class="bg-white w-full rounded-md py-2 pl-5 pr-3 shadow-sm focus:outline-none border border-gray-300 focus:border-sky-500 focus:ring-sky-500 focus:ring-1 font-semibold" name="tim_individu">
+              <select v-model="status"
+                      class="bg-white w-full rounded-md py-2 pl-5 pr-3 shadow-sm focus:outline-none border border-gray-300 focus:border-sky-500 focus:ring-sky-500 focus:ring-1 font-semibold">
                 <option value="tim">Tim</option>
                 <option selected value="individu">Individu</option>
               </select>
@@ -110,24 +139,34 @@
                 <tbody>
                 <tr v-for="(item, index) in this.$store.state.mahasiswa" v-bind:key="index">
                   <td>
-                    <input @keyup.enter="insertNim(index, item.nim)" class="bg-gray-100 focus:bg-white w-full py-2 pl-5 pr-3 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 font-semibold" type="text" name="tim_individu" v-model="item.nim">
+                    <input @keyup.enter="insertNim(index, item.nim)"
+                           class="bg-gray-100 focus:bg-white w-full py-2 pl-5 pr-3 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 font-semibold"
+                           type="text" name="tim_individu" v-model="item.nim">
                   </td>
                   <td>
-                    <input disabled class="bg-gray-100 focus:bg-white w-full py-2 pl-5 pr-3 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 font-semibold" type="text" name="tim_individu" v-model="item.nama">
+                    <input disabled
+                           class="bg-gray-100 focus:bg-white w-full py-2 pl-5 pr-3 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 font-semibold"
+                           type="text" name="tim_individu" v-model="item.nama">
                   </td>
                   <td class="px-1">
-                    <button @click="deleteMahasiswa(index)" class="bg-rose-500 transform focus:scale-110 transition duration-200 text-white text-center rounded-md shadow-md focus:shadow-lg px-1.5"><font-awesome-icon icon="fas fa-minus" /></button>
+                    <button @click="deleteMahasiswa(index)"
+                            class="bg-rose-500 transform focus:scale-110 transition duration-200 text-white text-center rounded-md shadow-md focus:shadow-lg px-1.5">
+                      <font-awesome-icon icon="fas fa-minus"/>
+                    </button>
                   </td>
                 </tr>
                 <tr>
                   <td>
-<!--                    <input class="bg-gray-100 focus:bg-white w-full py-2 pl-5 pr-3 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 font-semibold" type="text" name="tim_individu">-->
+                    <!--                    <input class="bg-gray-100 focus:bg-white w-full py-2 pl-5 pr-3 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 font-semibold" type="text" name="tim_individu">-->
                   </td>
                   <td>
-<!--                    <input class="bg-gray-100 focus:bg-white w-full py-2 pl-5 pr-3 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 font-semibold" type="text" name="tim_individu">-->
+                    <!--                    <input class="bg-gray-100 focus:bg-white w-full py-2 pl-5 pr-3 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 font-semibold" type="text" name="tim_individu">-->
                   </td>
                   <td class="px-1">
-                    <button @click="addMahasiswa" class="bg-emerald-500 transform focus:scale-110 transition duration-200 text-white text-center rounded-md shadow-md focus:shadow-lg px-1.5"><font-awesome-icon icon="fas fa-plus" /></button>
+                    <button @click="addMahasiswa"
+                            class="bg-emerald-500 transform focus:scale-110 transition duration-200 text-white text-center rounded-md shadow-md focus:shadow-lg px-1.5">
+                      <font-awesome-icon icon="fas fa-plus"/>
+                    </button>
                   </td>
                 </tr>
                 </tbody>
@@ -142,6 +181,8 @@
 
 <script>
 import MacCardComponent from "@/components/widget/MacCardComponent";
+import axios from "axios";
+
 export default {
   name: "PenghargaanPage",
   data() {
@@ -157,11 +198,31 @@ export default {
       this.$store.commit('pushMahasiswa', {nim: null, nama: null})
     },
     insertNim: function (key, nim) {
-      this.$store.state.mahasiswa[key].nama = nim
+      for (let i in this.$store.state.mahasiswa) {
+        if (nim === this.$store.state.mahasiswa[i].nim) {
+          if (key == i) {
+            axios.post(process.env.VUE_APP_BASE_URL + "/api/insert-nim/", {
+            nim: nim
+            })
+            .then(resp => {
+              console.log(resp)
+              this.$store.state.mahasiswa[key].nama = resp.data.name
+            })
+            .catch(e => {
+              console.log(e)
+              this.$store.state.mahasiswa[key].nama = null
+            })
+          } else {
+            alert('anda sudah memasukkan NIM tersebut')
+          break
+          }
+        }
+      }
+
     },
     deleteMahasiswa: function (key) {
       this.$store.commit('deleteMahasiswa', key)
-    }
+    },
   }
 }
 </script>

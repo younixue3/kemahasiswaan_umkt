@@ -8,7 +8,7 @@
             <div>
               <input
                   class="bg-white w-full rounded-md py-2 pl-5 pr-3 shadow-sm focus:outline-none border border-gray-300 focus:border-sky-500 focus:ring-sky-500 focus:ring-1 font-semibold"
-                  type="text" name="event">
+                  type="text" name="nama_event" v-model="nama_event">
             </div>
           </div>
           <div class="col-span-2">
@@ -16,7 +16,7 @@
             <div>
               <input
                   class="bg-white w-full rounded-md py-2 pl-5 pr-3 shadow-sm focus:outline-none border border-gray-300 focus:border-sky-500 focus:ring-sky-500 focus:ring-1 font-semibold"
-                  type="text" name="url_kegiatan">
+                  type="text" name="url_kegiatan" v-model="url_kegiatan">
             </div>
           </div>
           <div class="col-span-2">
@@ -24,7 +24,7 @@
             <div>
               <input
                   class="bg-white w-full rounded-md py-2 pl-5 pr-3 shadow-sm focus:outline-none border border-gray-300 focus:border-sky-500 focus:ring-sky-500 focus:ring-1 font-semibold"
-                  type="text" name="penyelenggara">
+                  type="text" name="penyelenggara" v-model="peyelenggara">
             </div>
           </div>
           <div>
@@ -32,7 +32,7 @@
             <div>
               <input
                   class="bg-white w-full rounded-md py-2 pl-5 pr-3 shadow-sm focus:outline-none border border-gray-300 focus:border-sky-500 focus:ring-sky-500 focus:ring-1 font-semibold"
-                  type="text" name="lingkup_tingkat">
+                  type="text" name="lingkup_tingkat" v-model="lingkup_tingkat">
             </div>
           </div>
           <div>
@@ -40,7 +40,7 @@
             <div>
               <input
                   class="bg-white w-full rounded-md py-2 pl-5 pr-3 shadow-sm focus:outline-none border border-gray-300 focus:border-sky-500 focus:ring-sky-500 focus:ring-1 font-semibold"
-                  type="number" name="jumlah_negara">
+                  type="number" name="jumlah_negara" v-model="jumlah_negara">
             </div>
           </div>
           <div class="col-span-2">
@@ -48,7 +48,7 @@
             <div>
               <input
                   class="bg-white w-full rounded-md py-2 pl-5 pr-3 shadow-sm focus:outline-none border border-gray-300 focus:border-sky-500 focus:ring-sky-500 focus:ring-1 font-semibold"
-                  type="text" name="kategori">
+                  type="text" name="kategori" v-model="kategori">
             </div>
           </div>
           <div>
@@ -56,7 +56,7 @@
             <div>
               <input
                   class="bg-white w-full rounded-md py-2 pl-5 pr-3 shadow-sm focus:outline-none border border-gray-300 focus:border-sky-500 focus:ring-sky-500 focus:ring-1 font-semibold"
-                  type="text" name="prestasi_diraih">
+                  type="text" name="prestasi_diraih" v-model="prestasi_diraih">
             </div>
           </div>
           <div>
@@ -64,7 +64,7 @@
             <div>
               <input
                   class="bg-white w-full rounded-md py-2 pl-5 pr-3 shadow-sm focus:outline-none border border-gray-300 focus:border-sky-500 focus:ring-sky-500 focus:ring-1 font-semibold"
-                  type="text" name="ekuivalensi">
+                  type="text" name="ekuivalensi" v-model="ekuivalensi">
             </div>
           </div>
           <div class="col-span-2">
@@ -72,7 +72,7 @@
             <div>
               <input
                   class="bg-white w-full rounded-md py-2 pl-5 pr-3 shadow-sm focus:outline-none border border-gray-300 focus:border-sky-500 focus:ring-sky-500 focus:ring-1 font-semibold"
-                  type="text" name="tempat">
+                  type="text" name="tempat" v-model="tempat">
             </div>
           </div>
           <div>
@@ -80,7 +80,7 @@
             <div>
               <input
                   class="bg-white w-full rounded-md py-2 pl-5 pr-3 shadow-sm focus:outline-none border border-gray-300 focus:border-sky-500 focus:ring-sky-500 focus:ring-1 font-semibold"
-                  type="date" name="tanggal_mulai">
+                  type="date" name="tanggal_mulai" v-model="tanggal_mulai">
             </div>
           </div>
           <div>
@@ -88,13 +88,13 @@
             <div>
               <input
                   class="bg-white w-full rounded-md py-2 pl-5 pr-3 shadow-sm focus:outline-none border border-gray-300 focus:border-sky-500 focus:ring-sky-500 focus:ring-1 font-semibold"
-                  type="date" name="tanggal_selesai">
+                  type="date" name="tanggal_selesai" v-model="tanggal_selesai">
             </div>
           </div>
           <div class="col-span-2">
             <label>Deskripsi</label>
             <div>
-              <textarea
+              <textarea v-model="deskripsi"
                   class="bg-white w-full rounded-md py-2 pl-5 pr-3 shadow-sm focus:outline-none border border-gray-300 focus:border-sky-500 focus:ring-sky-500 focus:ring-1 font-semibold"
                   name="deskripsi"></textarea>
             </div>
@@ -104,7 +104,7 @@
             <div>
               <input
                   class="bg-white w-full rounded-md py-2 pl-5 pr-3 shadow-sm focus:outline-none border border-gray-300 focus:border-sky-500 focus:ring-sky-500 focus:ring-1 font-semibold"
-                  type="file" name="bukti">
+                  type="file" name="bukti" @change="insertBukti">
             </div>
           </div>
           <div>
@@ -112,7 +112,7 @@
             <div>
               <input
                   class="bg-white w-full rounded-md py-2 pl-5 pr-3 shadow-sm focus:outline-none border border-gray-300 focus:border-sky-500 focus:ring-sky-500 focus:ring-1 font-semibold"
-                  type="file" name="foto_kegiatan">
+                  type="file" name="foto_kegiatan" @change="insertFotoKegiatan">
             </div>
           </div>
           <div>
@@ -121,11 +121,11 @@
               <select v-model="status"
                       class="bg-white w-full rounded-md py-2 pl-5 pr-3 shadow-sm focus:outline-none border border-gray-300 focus:border-sky-500 focus:ring-sky-500 focus:ring-1 font-semibold">
                 <option value="tim">Tim</option>
-                <option selected value="individu">Individu</option>
+                <option value="individu" selected>Individu</option>
               </select>
             </div>
           </div>
-          <div>
+          <div v-if="status === 'tim'">
             <label>Anggota Tim</label>
             <div class="rounded-md py-4 bg-white">
               <table class="table-auto w-full">
@@ -187,7 +187,9 @@ export default {
   name: "OrganisasPage",
   data() {
     return {
-      status: null
+      status: 'individu',
+      foto_kegiatan: null,
+      bukti: null
     }
   },
   components: {
@@ -199,14 +201,13 @@ export default {
     },
     insertNim: function (key, nim) {
       for (let i in this.$store.state.mahasiswa) {
-        console.log(key)
-        console.log(i)
         if (nim === this.$store.state.mahasiswa[i].nim) {
           if (key == i) {
             axios.post(process.env.VUE_APP_BASE_URL + "/api/insert-nim/", {
             nim: nim
             })
             .then(resp => {
+              console.log(resp)
               this.$store.state.mahasiswa[key].nama = resp.data.name
             })
             .catch(e => {
@@ -219,11 +220,37 @@ export default {
           }
         }
       }
-
     },
     deleteMahasiswa: function (key) {
       this.$store.commit('deleteMahasiswa', key)
     },
+    submitForm: function () {
+      axios.post(process.env.VUE_APP_BASE_URL + "/api/insert-nim/", {
+        nama_event: this.nama_event,
+        url_kegiatan: this.url_kegiatan,
+        penyelenggara: this.penyelenggara,
+        lingkup_tingkat: this.lingkup_tingkat,
+        jumlah_negara: this.jumlah_negara,
+        kategori: this.kategori,
+        prestasi_diraih: this.prestasi_diraih,
+        ekuivalensi: this.ekuivalensi,
+        tempat: this.tempat,
+        tanggal_mulai: this.tanggal_mulai,
+        tanggal_selesai: this.tanggal_selesai,
+        deskripsi: this.deskripsi,
+        tim_individu: this.tim_individu
+      })
+      .then(resp => {
+        console.log(resp)
+      })
+      .catch(e => console.log(e))
+    },
+    insertFotoKegiatan: function () {
+      this.foto_kegiatan = event.target.files
+    },
+    insertBukti: function () {
+      this.bukti = event.target.files
+    }
   }
 }
 </script>

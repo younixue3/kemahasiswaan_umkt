@@ -1,5 +1,5 @@
 <template>
-  <div class="py-0.5 my-1 rounded-xl overflow-hidden truncate">
+  <div class="py-0.5 rounded-xl overflow-x-hidden truncate" :class="dropactive ? 'h-full' : 'h-9'">
         <div>
             <div class="hover:bg-gray-200 px-2 pt-1 rounded-lg cursor-pointer" @click="dropdownactive">
                 <div class="flex w-52">
@@ -14,8 +14,8 @@
                     </span>
                 </div>
             </div>
-            <ul class="bg-gray-200 text-sm rounded-lg my-2 overflow-hidden truncate transition-all ease-in-out" :class="dropactive ? height : 'h-0'">
-              <div class="grid grid-cols-1 gap-2 p-2">
+            <ul class="bg-gray-300 text-sm rounded-lg my-2 overflow-hidden truncate transition-all ease-in-out" :class="dropactive ? height : 'h-0'">
+              <div class="grid grid-cols-1 gap-2 p-0.5">
                 <slot name="item"></slot>
               </div>
             </ul>
