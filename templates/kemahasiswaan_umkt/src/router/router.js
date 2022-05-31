@@ -5,6 +5,7 @@ import DashboardPage from "@/views/dashboard/DashboardPage";
 import PenghargaanPage from "@/views/dashboard/prestasi/PenghargaanPage";
 import WorkshopPage from "@/views/dashboard/prestasi/WorkshopPage";
 import OrganisasiPage from "@/views/dashboard/prestasi/OrganisasiPage";
+import LoginPage from "@/views/auth/LoginPage";
 
 Vue.use(VueRouter)
 
@@ -17,18 +18,22 @@ const routes = [
       {
         path: '',
         component: DashboardPage,
+        meta: { requiresAuth: true },
       },
         {
         path: 'prestasi-penghargaan',
         component: PenghargaanPage,
+          meta: { requiresAuth: true },
       },
         {
         path: 'prestasi-seminar',
         component: WorkshopPage,
+          meta: { requiresAuth: true },
       },
         {
         path: 'prestasi-organisasi',
         component: OrganisasiPage,
+          meta: { requiresAuth: true },
       },
       // {
       //   path: '/form',
@@ -42,6 +47,11 @@ const routes = [
       // },
     ]
   },
+  {
+    path: '/login',
+    name: 'login',
+    component: LoginPage,
+  }
 ]
 
 const router = new VueRouter({
@@ -49,26 +59,26 @@ const router = new VueRouter({
   linkActiveClass: 'is-active'
 })
 
-// router.beforeEach((to, from, next) => {
-//   if (to.matched.some(record => record.meta.requiresAuth)) {
-//     if (store.state.auth.status) {
-//       next()
-//     } else {
-//       next({
-//         path: '/login',
-//         query: { redirect: to.fullPath }
-//       })
-//     }
-//   } else {
-//     if (store.state.auth.status) {
-//       next({
-//         path: '/',
-//         query: { redirect: to.fullPath }
-//       })
-//     } else {
-//       next()
-//     }
-//   }
-// })
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(record => record.meta.requiresAuth)) {
+    if (store.state.auth.status) {
+      next()
+    } else {
+      next({
+        path: '/login',
+        query: { redirect: to.fullPath }
+      })
+    }
+  } else {
+    if (store.state.auth.status) {
+      next({
+        path: '/',
+        query: { redirect: to.fullPath }
+      })
+    } else {
+      next()
+    }
+  }
+})
 
 export default router
