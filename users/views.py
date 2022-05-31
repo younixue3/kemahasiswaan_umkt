@@ -6,6 +6,9 @@ from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.authtoken.models import Token
 from users.serializers import UserSerializer, GroupSerializer, NimSerializer
 from .models import Account
+from rest_framework.decorators import api_view
+
+from rest_framework.views import APIView
 
 class CustomAuthToken(ObtainAuthToken):
 
@@ -52,3 +55,10 @@ class NimViewSet(viewsets.ModelViewSet):
     queryset = Account.objects.all()
     serializer_class = NimSerializer
     permission_classes = [permissions.IsAuthenticated]
+
+@api_view(['POST'])
+def insertNim(request):
+    if request.method == 'POST':
+        user = User.objects.get(account__nim=request.data['nim'])
+        context = {'name': user.first_name + ' ' + user.last_name}
+        return Response(context)
