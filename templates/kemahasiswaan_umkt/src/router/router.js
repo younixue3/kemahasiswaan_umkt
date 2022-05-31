@@ -6,6 +6,7 @@ import PenghargaanPage from "@/views/dashboard/prestasi/PenghargaanPage";
 import WorkshopPage from "@/views/dashboard/prestasi/WorkshopPage";
 import OrganisasiPage from "@/views/dashboard/prestasi/OrganisasiPage";
 import LoginPage from "@/views/auth/LoginPage";
+import store from '../store/vuex';
 
 Vue.use(VueRouter)
 
@@ -51,6 +52,7 @@ const routes = [
     path: '/login',
     name: 'login',
     component: LoginPage,
+    meta: { requiresAuth: false }
   }
 ]
 

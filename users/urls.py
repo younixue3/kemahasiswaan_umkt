@@ -10,4 +10,5 @@ router.register(r'nim', views.NimViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
+    path('auth/', views.CustomAuthToken.as_view()),
 ]
