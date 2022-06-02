@@ -2,7 +2,7 @@
   <div>
     <div class="grid grid-cols-12 gap-x-5 gap-y-5 my-5">
       <MacCardComponent cardsname="Staff | Status" class="col-span-12 overflow-hidden">
-        <form @submit.prevent="submitForm" action="" method="POST" class="grid grid-cols-2 gap-5 px-5" enctype="multipart/form-data">
+        <div class="grid grid-cols-2 gap-5 px-5">
           <div class="col-span-2">
             <label>Event</label>
             <div>
@@ -183,7 +183,7 @@
               Cancel
             </button>
           </div>
-        </form>
+        </div>
       </MacCardComponent>
     </div>
   </div>
@@ -198,7 +198,7 @@ export default {
   data() {
     return {
       status: 'individu',
-      foto_kegiatan: null,
+      foto_kegiatan: {},
       bukti: null,
       nama_event : null,
       url_kegiatan : null,
@@ -272,7 +272,6 @@ export default {
     },
     insertFotoKegiatan: function () {
       this.foto_kegiatan = event.target.files[0]
-      console.log(this.foto_kegiatan)
     },
     insertBukti: function () {
       this.bukti = event.target.files[0]

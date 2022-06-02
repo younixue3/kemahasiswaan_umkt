@@ -20,8 +20,8 @@ class prestasi(models.Model):
     tanggal_mulai = models.DateField()
     tanggal_selesai = models.DateField()
     deskripsi = models.TextField()
-    bukti = models.TextField()
-    foto_kegiatan = models.TextField()
+    bukti = models.FileField(upload_to='img/')
+    foto_kegiatan = models.FileField(upload_to='img/')
     tim_individu = models.CharField(
         max_length=10,
         choices=TIM_INDIVIDU_CHOICES,

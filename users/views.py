@@ -4,9 +4,10 @@ from rest_framework import permissions
 from rest_framework.response import Response
 from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.authtoken.models import Token
-from users.serializers import UserSerializer, GroupSerializer, NimSerializer
+from users.serializers import UserSerializer, GroupSerializer, NimSerializer, PrestasiSerializer
 from .models import Account
 from rest_framework.decorators import api_view
+from prestasi_mahasiswa.models import prestasi
 
 from rest_framework.views import APIView
 
@@ -54,6 +55,14 @@ class NimViewSet(viewsets.ModelViewSet):
     """
     queryset = Account.objects.all()
     serializer_class = NimSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+class PrestasiViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows groups to be viewed or edited.
+    """
+    queryset = prestasi.objects.all()
+    serializer_class = PrestasiSerializer
     permission_classes = [permissions.IsAuthenticated]
 
 @api_view(['POST'])
