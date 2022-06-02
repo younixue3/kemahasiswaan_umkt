@@ -2,7 +2,7 @@
   <div>
     <div class="grid grid-cols-12 gap-x-5 gap-y-5 my-5">
       <MacCardComponent cardsname="Staff | Status" class="col-span-12 overflow-hidden">
-        <div class="grid grid-cols-2 gap-5 px-5">
+        <form @submit.prevent="submitForm" action="" method="POST" class="grid grid-cols-2 gap-5 px-5" enctype="multipart/form-data">
           <div class="col-span-2">
             <label>Event</label>
             <div>
@@ -173,7 +173,17 @@
               </table>
             </div>
           </div>
-        </div>
+          <div class="col-span-2">
+            <button @click="submitForm"
+                    class="bg-emerald-500 transform focus:scale-110 transition duration-200 text-white text-center rounded-md shadow-md focus:shadow-lg px-1.5">
+              Insert
+            </button>
+            <button @click="cancelForm"
+                    class="bg-emerald-500 transform focus:scale-110 transition duration-200 text-white text-center rounded-md shadow-md focus:shadow-lg px-1.5">
+              Cancel
+            </button>
+          </div>
+        </form>
       </MacCardComponent>
     </div>
   </div>
@@ -189,7 +199,20 @@ export default {
     return {
       status: 'individu',
       foto_kegiatan: null,
-      bukti: null
+      bukti: null,
+      nama_event : null,
+      url_kegiatan : null,
+      penyelenggara : null,
+      lingkup_tingkat : null,
+      jumlah_negara : null,
+      kategori : null,
+      prestasi_diraih : null,
+      ekuivalensi : null,
+      tempat : null,
+      tanggal_mulai : null,
+      tanggal_selesai : null,
+      deskripsi : null,
+      tim_individu : null
     }
   },
   components: {
@@ -225,7 +248,7 @@ export default {
       this.$store.commit('deleteMahasiswa', key)
     },
     submitForm: function () {
-      axios.post(process.env.VUE_APP_BASE_URL + "/api/insert-nim/", {
+      axios.post(process.env.VUE_APP_BASE_URL + "/prestasi/insert-prestasi", {
         nama_event: this.nama_event,
         url_kegiatan: this.url_kegiatan,
         penyelenggara: this.penyelenggara,
@@ -238,7 +261,9 @@ export default {
         tanggal_mulai: this.tanggal_mulai,
         tanggal_selesai: this.tanggal_selesai,
         deskripsi: this.deskripsi,
-        tim_individu: this.tim_individu
+        tim_individu: this.tim_individu,
+        foto_kegiatan: this.foto_kegiatan,
+        bukti: this.bukti,
       })
       .then(resp => {
         console.log(resp)
@@ -246,10 +271,26 @@ export default {
       .catch(e => console.log(e))
     },
     insertFotoKegiatan: function () {
-      this.foto_kegiatan = event.target.files
+      this.foto_kegiatan = event.target.files[0]
+      console.log(this.foto_kegiatan)
     },
     insertBukti: function () {
-      this.bukti = event.target.files
+      this.bukti = event.target.files[0]
+    },
+    cancelForm: function () {
+      this.nama_event = null
+      this.url_kegiatan = null
+      this.penyelenggara = null
+      this.lingkup_tingkat = null
+      this.jumlah_negara = null
+      this.kategori = null
+      this.prestasi_diraih = null
+      this.ekuivalensi = null
+      this.tempat = null
+      this.tanggal_mulai = null
+      this.tanggal_selesai = null
+      this.deskripsi = null
+      this.tim_individu = null
     }
   }
 }

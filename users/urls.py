@@ -11,5 +11,6 @@ router.register(r'nim', views.NimViewSet)
 urlpatterns = [
     path('', include(router.urls)),
     path('auth/', views.CustomAuthToken.as_view()),
-    path('insert-nim/', views.insertNim)
+    path('insert-nim/', views.insertNim),
+
 ]
