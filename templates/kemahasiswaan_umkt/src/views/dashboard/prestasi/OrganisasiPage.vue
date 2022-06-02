@@ -248,22 +248,23 @@ export default {
       this.$store.commit('deleteMahasiswa', key)
     },
     submitForm: function () {
-      axios.post(process.env.VUE_APP_BASE_URL + "/prestasi/insert-prestasi", {
-        nama_event: this.nama_event,
-        url_kegiatan: this.url_kegiatan,
-        penyelenggara: this.penyelenggara,
-        lingkup_tingkat: this.lingkup_tingkat,
-        jumlah_negara: this.jumlah_negara,
-        kategori: this.kategori,
-        prestasi_diraih: this.prestasi_diraih,
-        ekuivalensi: this.ekuivalensi,
-        tempat: this.tempat,
-        tanggal_mulai: this.tanggal_mulai,
-        tanggal_selesai: this.tanggal_selesai,
-        deskripsi: this.deskripsi,
-        tim_individu: this.tim_individu,
-        foto_kegiatan: this.foto_kegiatan,
-        bukti: this.bukti,
+      const formData = new FormData()
+      formData.append('foto_kegiatan', this.foto_kegiatan, this.foto_kegiatan.name)
+      formData.append('bukti', this.bukti, this.bukti.name)
+      formData.append('nama_event', this.nama_event)
+      formData.append('url_kegiatan', this.url_kegiatan)
+      formData.append('penyelenggara', this.penyelenggara)
+      formData.append('lingkup_tingkat', this.lingkup_tingkat)
+      formData.append('jumlah_negara', this.jumlah_negara)
+      formData.append('kategori', this.kategori)
+      formData.append('prestasi_diraih', this.prestasi_diraih)
+      formData.append('ekuivalensi', this.ekuivalensi)
+      formData.append('tempat', this.tempat)
+      formData.append('tanggal_mulai', this.tanggal_mulai)
+      formData.append('tanggal_selesai', this.tanggal_selesai)
+      formData.append('deskripsi', this.deskripsi)
+      formData.append('tim_individu', this.tim_individu)
+      axios.post(process.env.VUE_APP_BASE_URL + "/prestasi/insert-prestasi", formData, {
       })
       .then(resp => {
         console.log(resp)
