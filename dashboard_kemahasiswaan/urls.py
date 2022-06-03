@@ -4,5 +4,6 @@ from . import views
 
 urlpatterns = [
     path('top-chart-get', views.topChartGet),
-    path('jenis-chart-get', views.jenisChartGet)
+    path('jenis-chart-get', views.jenisChartGet),
+    path('prodi-chart-get', views.prodiChartGet)
 ]

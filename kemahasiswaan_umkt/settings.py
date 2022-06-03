@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'users.apps.UsersConfig',
     'prestasi_mahasiswa',
+    'dashboard_kemahasiswaan',
     'corsheaders',
     'rest_framework',
     'rest_framework.authtoken',

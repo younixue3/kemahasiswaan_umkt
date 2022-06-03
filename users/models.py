@@ -9,3 +9,7 @@ class Account(models.Model):
 
     def __str__(self):
         return self.user.username
+
+class Prodi(models.Model):
+    name = models.CharField(max_length=90)
+    user = models.ManyToManyField(User)
