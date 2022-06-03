@@ -27,6 +27,7 @@ router.register(r'groups', views.GroupViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('users.urls')),
+    path('dashboard/', include('dashboard_kemahasiswaan.urls')),
     path('prestasi/', include('prestasi_mahasiswa.urls')),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]

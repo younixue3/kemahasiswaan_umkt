@@ -118,14 +118,14 @@
           <div>
             <label>Tim Individu</label>
             <div>
-              <select v-model="status"
+              <select v-model="tim_individu"
                       class="bg-white w-full rounded-md py-2 pl-5 pr-3 shadow-sm focus:outline-none border border-gray-300 focus:border-sky-500 focus:ring-sky-500 focus:ring-1 font-semibold">
                 <option value="tim">Tim</option>
                 <option value="individu" selected>Individu</option>
               </select>
             </div>
           </div>
-          <div v-if="status === 'tim'">
+          <div v-if="tim_individu === 'tim'">
             <label>Anggota Tim</label>
             <div class="rounded-md py-4 bg-white">
               <table class="table-auto w-full">
@@ -141,12 +141,12 @@
                   <td>
                     <input @keyup.enter="insertNim(index, item.nim)"
                            class="bg-gray-100 focus:bg-white w-full py-2 pl-5 pr-3 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 font-semibold"
-                           type="text" name="tim_individu" v-model="item.nim">
+                           type="text" v-model="item.nim">
                   </td>
                   <td>
                     <input disabled
                            class="bg-gray-100 focus:bg-white w-full py-2 pl-5 pr-3 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 font-semibold"
-                           type="text" name="tim_individu" v-model="item.nama">
+                           type="text" v-model="item.nama">
                   </td>
                   <td class="px-1">
                     <button @click="deleteMahasiswa(index)"
@@ -194,10 +194,9 @@ import MacCardComponent from "@/components/widget/MacCardComponent";
 import axios from "axios";
 
 export default {
-  name: "OrganisasPage",
+  name: "OrganisasiPage",
   data() {
     return {
-      status: 'individu',
       foto_kegiatan: {},
       bukti: null,
       nama_event : null,
@@ -212,7 +211,8 @@ export default {
       tanggal_mulai : null,
       tanggal_selesai : null,
       deskripsi : null,
-      tim_individu : null
+      tim_individu : 'individu',
+      anggota: []
     }
   },
   components: {
@@ -232,6 +232,7 @@ export default {
             .then(resp => {
               console.log(resp)
               this.$store.state.mahasiswa[key].nama = resp.data.name
+              this.anggota.push(nim)
             })
             .catch(e => {
               console.log(e)
@@ -264,6 +265,9 @@ export default {
       formData.append('tanggal_selesai', this.tanggal_selesai)
       formData.append('deskripsi', this.deskripsi)
       formData.append('tim_individu', this.tim_individu)
+      formData.append('token', this.$store.state.auth.token)
+      formData.append('anggota', JSON.stringify(this.anggota))
+      formData.append('jenis_prestasi', 'organisasi')
       axios.post(process.env.VUE_APP_BASE_URL + "/prestasi/insert-prestasi", formData, {
       })
       .then(resp => {

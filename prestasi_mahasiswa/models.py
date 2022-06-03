@@ -8,6 +8,14 @@ class prestasi(models.Model):
         (TIM, 'Tim'),
         (INDIVIDU, 'Individu'),
     ]
+    PENGHARGAAN = 'penghargaan'
+    SEMINAR = 'seminar'
+    ORGANISASI = 'organisasi'
+    JENIS_PRESTASI_CHOICES = [
+        (PENGHARGAAN, 'penghargaan'),
+        (SEMINAR, 'seminar'),
+        (ORGANISASI, 'organisasi'),
+    ]
     nama_event = models.CharField(max_length=80)
     url_kegiatan = models.TextField()
     penyelenggara = models.CharField(max_length=80)
@@ -26,6 +34,10 @@ class prestasi(models.Model):
         max_length=10,
         choices=TIM_INDIVIDU_CHOICES,
         default=INDIVIDU
+    )
+    jenis_prestasi = models.CharField(
+        max_length=20,
+        choices=JENIS_PRESTASI_CHOICES
     )
     user = models.ManyToManyField(User)
 
