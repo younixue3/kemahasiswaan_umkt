@@ -5,6 +5,7 @@ from rest_framework.decorators import api_view
 from django.db.models import Count
 from rest_framework.response import Response
 from users.models import Prodi
+import random
 
 @api_view(['GET'])
 def topChartGet(request):
@@ -30,8 +31,8 @@ def prodiChartGet(request):
         nilai = 0
         for value in Prodi.objects.all():
             context['label'].append(value.name)
+            context['bgcolor'].append("#"+''.join([random.choice('ABCDEF0123456789') for i in range(6)]))
             for value in value.user.annotate(num_prestasi=Count('prestasi')).all():
                 nilai = nilai + value.num_prestasi
-                print(value.num_prestasi)
             context['data'].append(nilai)
     return Response(context)
