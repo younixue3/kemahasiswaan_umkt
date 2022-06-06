@@ -39,7 +39,7 @@ class prestasi(models.Model):
         max_length=20,
         choices=JENIS_PRESTASI_CHOICES
     )
-    user = models.ManyToManyField(User)
+    # user = models.ManyToManyField(User)
 
     def __str__(self):
         return self.user.username

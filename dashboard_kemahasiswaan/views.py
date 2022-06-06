@@ -4,7 +4,6 @@ from django.contrib.auth.models import User
 from rest_framework.decorators import api_view
 from django.db.models import Count
 from rest_framework.response import Response
-from users.models import Prodi
 import random
 
 @api_view(['GET'])
