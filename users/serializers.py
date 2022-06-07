@@ -23,7 +23,7 @@ class CASTokenObtainSerializer(serializers.Serializer):
     username_field = User.USERNAME_FIELD
 
     default_error_messages = {
-        'no_active_account': _('No active account found with the given credentials')
+        'no_active_account': _('No active account found with the given credentialss')
     }
 
     def __init__(self, *args, **kwargs):
