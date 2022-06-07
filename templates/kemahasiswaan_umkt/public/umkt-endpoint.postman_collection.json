@@ -1,0 +1,1094 @@
+{
+	"info": {
+		"_postman_id": "687708e7-37f1-48f7-9b3d-004908a17ee0",
+		"name": "umkt-endpoint",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "operator",
+			"item": [
+				{
+					"name": "mahasiswa",
+					"item": [
+						{
+							"name": "mahasiswa_collection.get",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/mahasiswa?prodi=14201",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"mahasiswa"
+									],
+									"query": [
+										{
+											"key": "prodi",
+											"value": "14201"
+										},
+										{
+											"key": "kecamatan",
+											"value": "016205",
+											"disabled": true
+										},
+										{
+											"key": "kodeStatus",
+											"value": "A",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "mahasiswa_single.get",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/mahasiswa/17111024110001",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"mahasiswa",
+										"17111024110001"
+									],
+									"query": [
+										{
+											"key": "prodi",
+											"value": "61201",
+											"disabled": true
+										},
+										{
+											"key": "kecamatan",
+											"value": "016205",
+											"disabled": true
+										},
+										{
+											"key": "kodeStatus",
+											"value": "A",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "dosen",
+					"item": [
+						{
+							"name": "dosen_collection.get",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/dosen",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"dosen"
+									],
+									"query": [
+										{
+											"key": "prodi",
+											"value": "61201",
+											"disabled": true
+										},
+										{
+											"key": "konsentrasi",
+											"value": "MKKSDM",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "dosen_single.get",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/dosen/10045802",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"dosen",
+										"10045802"
+									],
+									"query": [
+										{
+											"key": "prodi",
+											"value": "61201",
+											"disabled": true
+										},
+										{
+											"key": "konsentrasi",
+											"value": "MKKSDM",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "fakultas",
+					"item": [
+						{
+							"name": "fakultas_collection.get",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/fakultas",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"fakultas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "fakultas_single.get",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/fakultas/01",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"fakultas",
+										"01"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "makul",
+					"item": [
+						{
+							"name": "makul_collection.read",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/makul",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"makul"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "makul_single.read",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/makul/1111",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"makul",
+										"1111"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "waktu_akademik",
+					"item": [
+						{
+							"name": "waktu_akademik_collection.read",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/waktu_akademik",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"waktu_akademik"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "waktu_akademik_single.read",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/waktu_akademik/tahun=2018;semester=2",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"waktu_akademik",
+										"tahun=2018;semester=2"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "badan_hukum",
+					"item": [
+						{
+							"name": "perguruan_tinggi.read",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/perguruan_tinggi",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"perguruan_tinggi"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "yayasan.read",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/yayasan",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"yayasan"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "kampus.read",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/kampus",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"kampus"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "jurusan.read",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/jurusan",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"jurusan"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "prodi",
+					"item": [
+						{
+							"name": "prodi_collection.get",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/prodi",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"prodi"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "prodi_single.get",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/prodi/13201",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"prodi",
+										"13201"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "aktivitas_kuliah",
+					"item": [
+						{
+							"name": "aktivitas_kuliah_mahasiswa.get",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/mahasiswa/17111024110001/aktivitas_kuliah",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"mahasiswa",
+										"17111024110001",
+										"aktivitas_kuliah"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"description": "tempuh"
+				},
+				{
+					"name": "khs",
+					"item": [
+						{
+							"name": "khs_mahasiswa.get",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/mahasiswa/17111024110001/khs?tahun=2018&semester=2",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"mahasiswa",
+										"17111024110001",
+										"khs"
+									],
+									"query": [
+										{
+											"key": "tahun",
+											"value": "2018"
+										},
+										{
+											"key": "semester",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "kelas_kuliah",
+					"item": [
+						{
+							"name": "kelas_kuliah_dosen.get",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/dosen/10045802/kelas_kuliah?tahun=2018&semester=1",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"dosen",
+										"10045802",
+										"kelas_kuliah"
+									],
+									"query": [
+										{
+											"key": "tahun",
+											"value": "2018"
+										},
+										{
+											"key": "semester",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "pembayaran",
+					"item": [
+						{
+							"name": "riwayat_pembayaran_mahasiswa.get",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/mahasiswa/17111024110001/riwayat_pembayaran",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"mahasiswa",
+										"17111024110001",
+										"riwayat_pembayaran"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "rekap_pembayaran_mahasiswa.get",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API_URL}}/mahasiswa/17111024110001/rekap_pembayaran",
+									"host": [
+										"{{API_URL}}"
+									],
+									"path": [
+										"mahasiswa",
+										"17111024110001",
+										"rekap_pembayaran"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "password",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"ACCESS_TOKEN\", data.access_token);",
+									"postman.setEnvironmentVariable(\"REFRESH_TOKEN\", data.refresh_token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "{{USERNAMEADMIN}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "{{PASSWORDADMIN}}",
+									"type": "text"
+								},
+								{
+									"key": "grant_type",
+									"value": "password",
+									"type": "text"
+								},
+								{
+									"key": "client_id",
+									"value": "{{CLIENT_ID}}",
+									"type": "text"
+								},
+								{
+									"key": "client_secret",
+									"value": "-",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{ACCESS_TOKEN_URL}}",
+							"host": [
+								"{{ACCESS_TOKEN_URL}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "auth_code",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"ACCESS_TOKEN\", data.access_token);",
+									"postman.setEnvironmentVariable(\"REFRESH_TOKEN\", data.refresh_token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "code",
+									"value": "{{AUTH_CODE}}",
+									"type": "text"
+								},
+								{
+									"key": "grant_type",
+									"value": "authorization_code",
+									"type": "text"
+								},
+								{
+									"key": "client_id",
+									"value": "{{CLIENT_ID}}",
+									"type": "text"
+								},
+								{
+									"key": "client_secret",
+									"value": "{{CLIENT_SECRET}}",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "redirect_uri",
+									"value": "{{REDIRECT_URI}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{ACCESS_TOKEN_URL}}",
+							"host": [
+								"{{ACCESS_TOKEN_URL}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "refresh_token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var data = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"ACCESS_TOKEN\", data.access_token);",
+									"postman.setEnvironmentVariable(\"REFRESH_TOKEN\", data.refresh_token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "grant_type",
+									"value": "refresh_token",
+									"type": "text"
+								},
+								{
+									"key": "client_id",
+									"value": "{{CLIENT_ID}}",
+									"type": "text"
+								},
+								{
+									"key": "client_secret",
+									"value": "{{CLIENT_SECRET}}",
+									"type": "text"
+								},
+								{
+									"key": "refresh_token",
+									"value": "{{REFRESH_TOKEN}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{ACCESS_TOKEN_URL}}",
+							"host": [
+								"{{ACCESS_TOKEN_URL}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user_info",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/user_info",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"user_info"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "referensi",
+			"item": [
+				{
+					"name": "negara.read",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/negara?nama=indo",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"negara"
+							],
+							"query": [
+								{
+									"key": "nama",
+									"value": "indo"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "wilayah.read",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/wilayah?nama=bandung",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"wilayah"
+							],
+							"query": [
+								{
+									"key": "level",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "nama",
+									"value": "bandung"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "pekerjaan",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/pekerjaan",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"pekerjaan"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "status_mahasiswa_ref.read",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/status_mahasiswa_ref",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"status_mahasiswa_ref"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "angkatan_mahasiswa.read",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/angkatan_mahasiswa_ref",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"angkatan_mahasiswa_ref"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "kelompok_sesi.read",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/kelompok_sesi",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"kelompok_sesi"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "status_mahasiswa_baru.read",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/status_mahasiswa_baru_ref",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"status_mahasiswa_baru_ref"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "sekolah.read",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/sekolah",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"sekolah"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "pekerjaan_ref.read",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/pekerjaan_ref",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"pekerjaan_ref"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "kelas_default_ref.read",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/kelas_default_ref",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"kelas_default_ref"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "referensi_perguruan_tinggi.read",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/referensi_perguruan_tinggi",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"referensi_perguruan_tinggi"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "jenjang_pendidikan",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/jenjang_pendidikan",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"jenjang_pendidikan"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "jenjang_pendidikan_orang_ref.read",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/jenjang_pendidikan_orang_ref",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"jenjang_pendidikan_orang_ref"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "jenis_tinggal.read",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/jenis_tinggal_ref",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"jenis_tinggal_ref"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "alat_transportasi.read",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/alat_transportasi_ref",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"alat_transportasi_ref"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "agama_ref.read",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/agama_ref",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"agama_ref"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "penghasilan_ref.read",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/penghasilan_ref",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"penghasilan_ref"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "provinsi.read",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API_URL}}/provinsi",
+							"host": [
+								"{{API_URL}}"
+							],
+							"path": [
+								"provinsi"
+							],
+							"query": [
+								{
+									"key": "kodeProvinsi",
+									"value": "94",
+									"disabled": true
+								},
+								{
+									"key": "kodeKabupatenKota",
+									"value": "01",
+									"disabled": true
+								},
+								{
+									"key": "namaKabupatenKota",
+									"value": "Indonesia",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{ACCESS_TOKEN}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

@@ -10,7 +10,9 @@ const state = {
         token: null,
         group: null,
         superuser: false,
-        name: null
+        name: null,
+        service: null,
+        ticket: null
     },
     mahasiswa: []
 }
@@ -47,6 +49,10 @@ const store = new Vuex.Store({
             state.auth.superuser = false
             state.auth.name = null
         },
+        login (state, ticket, service) {
+            state.auth.ticket = ticket
+            state.auth.service = service
+        }
     },
     actions: {},
     plugins: [createPersistedState()],
