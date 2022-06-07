@@ -6,7 +6,7 @@ import PenghargaanPage from "@/views/dashboard/prestasi/PenghargaanPage";
 import WorkshopPage from "@/views/dashboard/prestasi/WorkshopPage";
 import OrganisasiPage from "@/views/dashboard/prestasi/OrganisasiPage";
 import LoginPage from "@/views/auth/LoginPage";
-// import store from '../store/vuex';
+import store from '../store/vuex';
 
 Vue.use(VueRouter)
 
@@ -62,26 +62,26 @@ const router = new VueRouter({
   linkActiveClass: 'is-active'
 })
 
-// router.beforeEach((to, from, next) => {
-//   if (to.matched.some(record => record.meta.requiresAuth)) {
-//     if (store.state.auth.status) {
-//       next()
-//     } else {
-//       next({
-//         path: '/login',
-//         query: { redirect: to.fullPath }
-//       })
-//     }
-//   } else {
-//     if (store.state.auth.status) {
-//       next({
-//         path: '/',
-//         query: { redirect: to.fullPath }
-//       })
-//     } else {
-//       next()
-//     }
-//   }
-// })
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(record => record.meta.requiresAuth)) {
+    if (store.state.auth.access_token && store.state.auth.refresh_token) {
+      next()
+    } else {
+      next({
+        path: '/login',
+        query: { redirect: to.fullPath }
+      })
+    }
+  } else {
+    if (store.state.auth.status) {
+      next({
+        path: '/',
+        query: { redirect: to.fullPath }
+      })
+    } else {
+      next()
+    }
+  }
+})
 
 export default router

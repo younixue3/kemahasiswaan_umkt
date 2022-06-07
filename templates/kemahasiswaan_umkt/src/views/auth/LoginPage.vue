@@ -36,11 +36,7 @@ export default {
       notifikasi: {
         active: false,
         message: null,
-      },
-      datasso: {
-          ticket: null,
-          service: null
-        }
+      }
     }
   },
   name: "LoginPage",
@@ -50,7 +46,6 @@ export default {
   methods: {
     login() {
       if (!this.$router.currentRoute.query.ticket) {
-        console.log('cas')
         window.location.href = 'https://sso.umkt.ac.id/cas/login?service=' + window.location.origin + this.$router.currentRoute.path
       } else {
         console.log(this.$router.currentRoute.query.ticket)
@@ -59,7 +54,8 @@ export default {
           ticket: this.$router.currentRoute.query.ticket
         })
         .then(resp => {
-          console.log(resp)
+          this.$store.commit('auth', resp.data)
+          this.$router.push({ path: '/' })
         })
         .catch(e => console.log(e))
         // try {

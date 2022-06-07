@@ -1,18 +1,14 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import createPersistedState from "vuex-persistedstate";
+// import axios from "axios";
 
 Vue.use(Vuex)
 
 const state = {
     auth: {
-        status: false,
-        token: null,
-        group: null,
-        superuser: false,
-        name: null,
-        service: null,
-        ticket: null
+        access_token: null,
+        refresh_token: null
     },
     mahasiswa: []
 }
@@ -28,19 +24,8 @@ const store = new Vuex.Store({
             state.mahasiswa.splice(item, 1);
         },
         auth (state, data) {
-            if (data.token !== null) {
-                state.auth.status = true
-                state.auth.token = data.token
-                state.auth.group = data.group
-                state.auth.superuser = data.superuser
-                state.auth.name = data.name
-            } else {
-                state.auth.status = false
-                state.auth.token = null
-                state.auth.group = null
-                state.auth.superuser = false
-                state.auth.name = null
-            }
+            state.auth.access_token = data.access
+            state.auth.refresh_token = data.refresh
         },
         authLogout (state) {
             state.auth.status = false

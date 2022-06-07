@@ -1,9 +1,19 @@
+import json
+
 from django.contrib.auth.models import User, Group
 from rest_framework import serializers, exceptions
 from prestasi_mahasiswa.models import prestasi
 from rest_framework_simplejwt.tokens import RefreshToken
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth import authenticate
+import requests
+
+def get_user_profiles(key):
+    url = 'https://apiumkt.civitas.id/v1/' + key
+    ws = requests.get(url)
+    data = ws.json()['rows'][0]
+
+    return data
 
 class CASTokenObtainSerializer(serializers.Serializer):
     """
@@ -34,7 +44,6 @@ class CASTokenObtainSerializer(serializers.Serializer):
         except KeyError:
             pass
         self.user = authenticate(**authenticate_kwargs)
-        print(self.user)
         if self.user is None or not self.user.is_active:
             raise exceptions.AuthenticationFailed(
                 self.error_messages['no_active_account'],
@@ -54,7 +63,8 @@ class CASTokenObtainPairSerializer(CASTokenObtainSerializer):
 
     def validate(self, attrs):
         data = super().validate(attrs)
-
+        print(attrs)
+        print(self.user.first_name)
         refresh = self.get_token(self.user)
 
         data['refresh'] = str(refresh)
