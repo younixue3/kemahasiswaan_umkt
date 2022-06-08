@@ -28,16 +28,9 @@ const store = new Vuex.Store({
             state.auth.refresh_token = data.refresh
         },
         authLogout (state) {
-            state.auth.status = false
-            state.auth.token = null
-            state.auth.group = null
-            state.auth.superuser = false
-            state.auth.name = null
+            state.auth.access_token = null
+            state.auth.refresh_token = null
         },
-        login (state, ticket, service) {
-            state.auth.ticket = ticket
-            state.auth.service = service
-        }
     },
     actions: {},
     plugins: [createPersistedState()],

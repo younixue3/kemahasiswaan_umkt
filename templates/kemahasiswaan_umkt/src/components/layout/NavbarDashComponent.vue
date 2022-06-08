@@ -99,7 +99,8 @@ export default {
       }
     },
     logout: function () {
-      window.location.href = 'https://sso.umkt.ac.id/cas/logout?service=http://127.0.0.1:8080/login'
+      this.$store.commit('authLogout')
+      window.location.href = 'https://sso.umkt.ac.id/cas/logout?service=http://127.0.0.1:8080/'
       // axios.post(process.env.VUE_APP_BASE_URL + '/api/auth/logout/')
       //     .then(resp => {
       //       console.log(resp)
