@@ -8,20 +8,33 @@ from django.utils.translation import gettext_lazy as _
 from django.contrib.auth import authenticate
 import requests
 
-def get_user_profiles(key):
+def get_access_token_sikad():
+    body = requests.structures.CaseInsensitiveDict()
+    body['username'] = 'Haris'
+    body['password'] = 'Haris'
+    body['grant_type'] = 'password'
+    body['client_id'] = 'web'
+    url = 'https://apiumkt.civitas.id/access_token'
+    return requests.post(url, data=body).json()['access_token']
+
+def get_user_profiles(key, token):
     data = ''
+    headers = requests.structures.CaseInsensitiveDict()
+    headers["Accept"] = "application/json"
+    headers["Authorization"] = f"Bearer {token}"
+    print(token)
     try:
+        print('mahasiswa')
         url = 'https://apiumkt.civitas.id/v1/mahasiswa/' + key
-        ws = requests.get(url)
-        data = ws.json()['rows'][0]
-        print(data)
+        print(url)
+        ws = requests.get(url, headers=headers)
+        data = ws.json()
     except :
-        url = 'https://apiumkt.civitas.id/v1/dosen/' + key
-        ws = requests.get(url)
-        data = ws.json()['rows'][0]
-        print(data)
-    finally:
-        return data
+        print('dosen')
+        url = 'https://sihrd.umkt.ac.id/umar/v3/profil/?uniid=' + key
+        ws = requests.get(url, headers=headers)
+        data = ws.json()
+    return data
 
 class CASTokenObtainSerializer(serializers.Serializer):
     """
@@ -71,8 +84,10 @@ class CASTokenObtainPairSerializer(CASTokenObtainSerializer):
 
     def validate(self, attrs):
         data = super().validate(attrs)
-        get_user_profiles(self.user.username)
+        print({'data': get_user_profiles(self.user.username, get_access_token_sikad())})
         pass
+        # return {'data': get_user_profiles(self.user.username, self.get_token(self.user))}
+        # pass
         refresh = self.get_token(self.user)
 
         data['refresh'] = str(refresh)
