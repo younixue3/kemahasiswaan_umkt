@@ -68,7 +68,7 @@
 
 <script>
 import NavbarDropdownComponent from "@/components/layout/widget/NavbarDropdownComponent";
-import axios from "axios";
+// import axios from "axios";
 
 export default {
   name: "NavbarDashComponent",
@@ -99,15 +99,14 @@ export default {
       }
     },
     logout: function () {
-      axios.post(process.env.VUE_APP_BASE_URL + '/api/auth/logout/', {
-        ticket: this.$store.state.auth.refresh_token
-      })
-          .then(resp => {
-            console.log(resp)
-            // this.$store.commit('auth', resp.data)
-            // this.$router.push({ path: '/' })
-          })
-          .catch(e => console.log(e))
+      window.location.href = 'https://sso.umkt.ac.id/cas/logout?service=http://127.0.0.1:8080/login'
+      // axios.post(process.env.VUE_APP_BASE_URL + '/api/auth/logout/')
+      //     .then(resp => {
+      //       console.log(resp)
+      //       // this.$store.commit('auth', resp.data)
+      //       // this.$router.push({ path: '/' })
+      //     })
+      //     .catch(e => console.log(e))
       // this.$store.commit('authLogout')
       // this.$router.push({ name: 'login', query: { redirect: '/login' } });
     }

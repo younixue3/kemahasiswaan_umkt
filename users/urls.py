@@ -17,7 +17,7 @@ router.register(r'prestasi', views.PrestasiViewSet)
 urlpatterns = [
     path('', include(router.urls)),
     path('auth/', CASTokenObtainPairView.as_view(), name='token_obtain_pair'),
-    path('auth/logout/', views.LogoutSSO, name='logout'),
+    path('auth/logout/', casview.LogoutView.as_view(), name='logout'),
     path('insert-nim/', views.insertNim),
 
 

@@ -23,22 +23,6 @@ class CASTokenObtainPairView(TokenViewBase):
     token pair to prove the authentication of those credentials.
     """
     serializer_class = CASTokenObtainPairSerializer
-
-@csrf_exempt
-def LogoutSSO(request, **kwargs):
-    return _add_locale(request, casview.LoginView.as_view()(request, **kwargs))
-
-def _add_locale(request, response):
-    """If the given HttpResponse is a redirect to CAS, then add the proper
-    `locale` parameter to it (and return the modified response). If not, simply
-    return the original response."""
-
-    if (
-        isinstance(response, HttpResponseRedirect)
-        and response['Location'].startswith(settings.CAS_SERVER_URL)
-    ):
-        url = response['Location']
-    return response
 # class CustomAuthToken(ObtainAuthToken):
 #
 #     def post(self, request, *args, **kwargs):
