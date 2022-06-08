@@ -14,14 +14,14 @@
       <button @click="CloseBar()" type="button"
               class="transition-all bg-gray-700 shrink-0 -mr-3 w-10 h-10 text-white rounded-lg ease-in-out duration-500 z-50 m-auto -mr-5">
         <!-- Heroicon name: outline/x -->
-        <font-awesome-icon :icon="collapsed ? 'fas fa-bars' : 'fas fa-times'" />
+        <font-awesome-icon :icon="collapsed ? 'fas fa-bars' : 'fas fa-times'"/>
       </button>
     </div>
     <div class="text-lg font-normal tracking-tight">
       <div class="py-5 px-1 py-2 grid grid-cols-1">
         <NavbarDropdownComponent height="h-[7.3rem]">
           <template #group-icon>
-            <font-awesome-icon icon="fas fa-graduation-cap" />
+            <font-awesome-icon icon="fas fa-graduation-cap"/>
           </template>
           <template #group>
             <div>Prestasi Mahasiswa</div>
@@ -30,22 +30,22 @@
             <router-link to="/prestasi-penghargaan" class="px-2 rounded-md overflow-hidden">
               <button class="my-1 cursor-pointer flex w-52">
                 <div class="mr-2">
-                  <font-awesome-icon icon="fas fa-medal" />
+                  <font-awesome-icon icon="fas fa-medal"/>
                 </div>
                 <span class="">Penghargaan</span>
               </button>
             </router-link>
             <router-link to="/prestasi-seminar" class="px-2 rounded-md overflow-hidden">
               <button class="my-1 cursor-pointer flex w-52">
-                 <div class="mr-2">
-                  <font-awesome-icon icon="fas fa-chalkboard-teacher" />
+                <div class="mr-2">
+                  <font-awesome-icon icon="fas fa-chalkboard-teacher"/>
                 </div>
                 <span>Seminar/Workshop/Keahlian</span></button>
             </router-link>
             <router-link to="/prestasi-organisasi" class="px-2 rounded-md overflow-hidden">
               <button class="my-1 cursor-pointer flex w-52">
-                 <div class="mr-2">
-                  <font-awesome-icon icon="fas fa-sitemap" />
+                <div class="mr-2">
+                  <font-awesome-icon icon="fas fa-sitemap"/>
                 </div>
                 <span>Organisasi/Kepanitiaan</span></button>
             </router-link>
@@ -53,12 +53,12 @@
         </NavbarDropdownComponent>
         <div @click="logout" class="py-0.5 rounded-xl overflow-hidden truncate cursor-pointer">
           <div class="hover:bg-gray-200 px-2 pt-1 rounded-lg">
-              <div class="flex w-52">
-                  <div class="w-1/6">
-                      <font-awesome-icon icon="fas fa-sign-out" />
-                  </div>
-                  <span>Logout</span>
+            <div class="flex w-52">
+              <div class="w-1/6">
+                <font-awesome-icon icon="fas fa-sign-out"/>
               </div>
+              <span>Logout</span>
+            </div>
           </div>
         </div>
       </div>
@@ -68,6 +68,7 @@
 
 <script>
 import NavbarDropdownComponent from "@/components/layout/widget/NavbarDropdownComponent";
+import axios from "axios";
 
 export default {
   name: "NavbarDashComponent",
@@ -98,8 +99,17 @@ export default {
       }
     },
     logout: function () {
-      this.$store.commit('authLogout')
-      this.$router.push({ name: 'login', query: { redirect: '/login' } });
+      axios.post(process.env.VUE_APP_BASE_URL + '/api/auth/logout/', {
+        ticket: this.$store.state.auth.refresh_token
+      })
+          .then(resp => {
+            console.log(resp)
+            // this.$store.commit('auth', resp.data)
+            // this.$router.push({ path: '/' })
+          })
+          .catch(e => console.log(e))
+      // this.$store.commit('authLogout')
+      // this.$router.push({ name: 'login', query: { redirect: '/login' } });
     }
   }
 }

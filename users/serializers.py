@@ -9,11 +9,19 @@ from django.contrib.auth import authenticate
 import requests
 
 def get_user_profiles(key):
-    url = 'https://apiumkt.civitas.id/v1/' + key
-    ws = requests.get(url)
-    data = ws.json()['rows'][0]
-
-    return data
+    data = ''
+    try:
+        url = 'https://apiumkt.civitas.id/v1/mahasiswa/' + key
+        ws = requests.get(url)
+        data = ws.json()['rows'][0]
+        print(data)
+    except :
+        url = 'https://apiumkt.civitas.id/v1/dosen/' + key
+        ws = requests.get(url)
+        data = ws.json()['rows'][0]
+        print(data)
+    finally:
+        return data
 
 class CASTokenObtainSerializer(serializers.Serializer):
     """
@@ -63,8 +71,8 @@ class CASTokenObtainPairSerializer(CASTokenObtainSerializer):
 
     def validate(self, attrs):
         data = super().validate(attrs)
-        print(attrs)
-        print(self.user.first_name)
+        get_user_profiles(self.user.username)
+        pass
         refresh = self.get_token(self.user)
 
         data['refresh'] = str(refresh)

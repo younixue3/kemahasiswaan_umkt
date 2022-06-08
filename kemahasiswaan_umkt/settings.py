@@ -27,7 +27,8 @@ SECRET_KEY = 'django-insecure-(b!fh=-t4^8j%(2usc_05hzf07y%x3=wkw*+@0rg76^(2f=evc
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['2aed-103-144-170-214.ap.ngrok.io', '127.0.0.1']
+CSRF_TRUSTED_ORIGINS = ['http://127.0.0.1:8080']
 
 # Application definition
 
@@ -45,7 +46,8 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'rest_framework_simplejwt',
     'rest_framework_simplejwt.token_blacklist',
-    'users'
+    'users',
+    'django_cas_ng'
 ]
 
 MIDDLEWARE = [
