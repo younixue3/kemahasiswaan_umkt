@@ -7,34 +7,7 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth import authenticate
 import requests
-
-def get_access_token_sikad():
-    body = requests.structures.CaseInsensitiveDict()
-    body['username'] = 'Haris'
-    body['password'] = 'Haris'
-    body['grant_type'] = 'password'
-    body['client_id'] = 'web'
-    url = 'https://apiumkt.civitas.id/access_token'
-    return requests.post(url, data=body).json()['access_token']
-
-def get_user_profiles(key, token):
-    data = ''
-    headers = requests.structures.CaseInsensitiveDict()
-    headers["Accept"] = "application/json"
-    headers["Authorization"] = f"Bearer {token}"
-    print(token)
-    try:
-        print('mahasiswa')
-        url = 'https://apiumkt.civitas.id/v1/mahasiswa/' + key
-        print(url)
-        ws = requests.get(url, headers=headers)
-        data = ws.json()
-    except :
-        print('dosen')
-        url = 'https://sihrd.umkt.ac.id/umar/v3/profil/?uniid=' + key
-        ws = requests.get(url, headers=headers)
-        data = ws.json()
-    return data
+from utils.helper import get_user_profiles, get_access_token_sikad
 
 class CASTokenObtainSerializer(serializers.Serializer):
     """
@@ -84,10 +57,25 @@ class CASTokenObtainPairSerializer(CASTokenObtainSerializer):
 
     def validate(self, attrs):
         data = super().validate(attrs)
-        print({'data': get_user_profiles(self.user.username, get_access_token_sikad())})
-        pass
-        # return {'data': get_user_profiles(self.user.username, self.get_token(self.user))}
-        # pass
+        user_profile = get_user_profiles(self.user.username, get_access_token_sikad())
+        last_name = ''
+        if('nama' in user_profile):
+            for value in user_profile['nama'].split():
+                if user_profile['nama'].split().index(value) == 0:
+                    self.user.first_name = value
+                else:
+                    last_name = last_name + value + ' '
+            self.user.last_name = last_name
+            self.user.save()
+        else:
+            for value in user_profile['rows'][0]['nama'].split():
+                if user_profile['rows'][0]['nama'].split().index(value) == 0:
+                    self.user.first_name = value
+                else:
+                    last_name = last_name + value + ' '
+            self.user.last_name = last_name
+            self.user.save()
+
         refresh = self.get_token(self.user)
 
         data['refresh'] = str(refresh)

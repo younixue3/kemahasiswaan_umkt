@@ -16,6 +16,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponseRedirect
 
 from django.conf import settings
+from utils.helper import get_access_token_sikad, get_user_profiles
 
 class CASTokenObtainPairView(TokenViewBase):
     """
@@ -80,6 +81,6 @@ class PrestasiViewSet(viewsets.ModelViewSet):
 @api_view(['POST'])
 def insertNim(request):
     if request.method == 'POST':
-        user = User.objects.get(account__nim=request.data['nim'])
-        context = {'name': user.first_name + ' ' + user.last_name}
+        user_profile = get_user_profiles(request.data['nim'], get_access_token_sikad())
+        context = {'name': user_profile['nama']}
         return Response(context)
