@@ -7,7 +7,7 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth import authenticate
 import requests
-from utils.helper import get_user_profiles, get_access_token_sikad
+from utils.helper import get_user_profiles
 
 class CASTokenObtainSerializer(serializers.Serializer):
     """
@@ -57,7 +57,7 @@ class CASTokenObtainPairSerializer(CASTokenObtainSerializer):
 
     def validate(self, attrs):
         data = super().validate(attrs)
-        user_profile = get_user_profiles(self.user.username, get_access_token_sikad())
+        user_profile = get_user_profiles(self.user.username)
         last_name = ''
         if('nama' in user_profile):
             for value in user_profile['nama'].split():

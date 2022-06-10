@@ -4,10 +4,11 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.parsers import JSONParser, FileUploadParser, MultiPartParser
 from rest_framework.decorators import parser_classes
-from .models import prestasi
+from .models import prestasi, mahasiswa
 from datetime import date, datetime
 from rest_framework.authtoken.models import Token
 import json
+from utils.helper import get_user_profiles
 
 def handle_uploaded_file(f):
     print(f)
@@ -33,11 +34,12 @@ def insertPrestasi(request):
                                   bukti=request.data['bukti'],
                                   tim_individu=request.data['tim_individu'],
                                   jenis_prestasi=request.data['jenis_prestasi'])
-    prestasiinsert.user.add(User.objects.get(username=Token.objects.get(key=request.data['token']).user).id)
+    # prestasiinsert.user.add(User.objects.get(username=Token.objects.get(key=request.data['token']).user).id)
     if request.data['tim_individu'] == 'tim':
         for value in json.loads(request.data['anggota']):
-            print(value)
-            prestasiinsert.user.add(User.objects.get(account__nim=value).id)
+            user_profile = get_user_profiles(value)
+            mahasiswa.objects.create(nim=user_profile['idMahasiswa'], prodi=user_profile['prodi']['idProdi'])
+            prestasiinsert.mahasiswa.add(mahasiswa.objects.get(nim=user_profile['idMahasiswa']))
     handle_uploaded_file(request.data['foto_kegiatan'])
     handle_uploaded_file(request.data['bukti'])
     return Response()

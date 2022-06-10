@@ -9,11 +9,11 @@ def get_access_token_sikad():
     url = 'https://apiumkt.civitas.id/access_token'
     return requests.post(url, data=body).json()['access_token']
 
-def get_user_profiles(key, token):
+def get_user_profiles(key):
     data = ''
     headers = requests.structures.CaseInsensitiveDict()
     headers["Accept"] = "application/json"
-    headers["Authorization"] = f"Bearer {token}"
+    headers["Authorization"] = f"Bearer {get_access_token_sikad()}"
     if('idMahasiswa' in data):
         url = 'https://sihrd.umkt.ac.id/umar/v3/profil/?uniid=' + key
         ws = requests.get(url)
@@ -22,19 +22,14 @@ def get_user_profiles(key, token):
         url = 'https://apiumkt.civitas.id/v1/mahasiswa/' + key
         ws = requests.get(url, headers=headers)
         data = ws.json()
-    return
+    return data
 
-def transfer_data_prodi(key, token):
+def get_prodi():
     data = ''
     headers = requests.structures.CaseInsensitiveDict()
     headers["Accept"] = "application/json"
-    headers["Authorization"] = f"Bearer {token}"
-    if('idMahasiswa' in data):
-        url = 'https://sihrd.umkt.ac.id/umar/v3/profil/?uniid=' + key
-        ws = requests.get(url)
-        data = ws.json()
-    else:
-        url = 'https://apiumkt.civitas.id/v1/mahasiswa/' + key
-        ws = requests.get(url, headers=headers)
-        data = ws.json()
+    headers["Authorization"] = f"Bearer {get_access_token_sikad()}"
+    url = 'https://apiumkt.civitas.id/v1/prodi/'
+    ws = requests.get(url, headers=headers)
+    data = ws.json()
     return data
