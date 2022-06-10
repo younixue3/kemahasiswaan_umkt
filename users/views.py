@@ -19,10 +19,6 @@ from django.conf import settings
 from utils.helper import get_user_profiles
 
 class CASTokenObtainPairView(TokenViewBase):
-    """
-    Takes a set of user credentials and returns an access and refresh JSON web
-    token pair to prove the authentication of those credentials.
-    """
     serializer_class = CASTokenObtainPairSerializer
 # class CustomAuthToken(ObtainAuthToken):
 #

@@ -10,10 +10,7 @@ import requests
 from utils.helper import get_user_profiles
 
 class CASTokenObtainSerializer(serializers.Serializer):
-    """
-    This class is inspired by the `TokenObtainPairSerializer` and `TokenObtainSerializer`
-    from the `rest_framework_simplejwt` package.
-    """
+
     username_field = User.USERNAME_FIELD
 
     default_error_messages = {

@@ -34,7 +34,6 @@ def insertPrestasi(request):
                                   bukti=request.data['bukti'],
                                   tim_individu=request.data['tim_individu'],
                                   jenis_prestasi=request.data['jenis_prestasi'])
-    # prestasiinsert.user.add(User.objects.get(username=Token.objects.get(key=request.data['token']).user).id)
     if request.data['tim_individu'] == 'tim':
         for value in json.loads(request.data['anggota']):
             user_profile = get_user_profiles(value)

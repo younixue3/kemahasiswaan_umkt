@@ -27,10 +27,7 @@ def jenisChartGet(request):
 def prodiChartGet(request):
     context = {'label': [], 'data': [], 'bgcolor': []}
     if request.method == 'GET':
-        # print(Prodi.objects.prefetch_related('user__user_permissions').all())
-        # return print(get_prodi())
         for value in get_prodi()['data']:
-            print(value['nama'])
             context['label'].append(value['nama'])
             context['bgcolor'].append("#"+''.join([random.choice('ABCDEF0123456789') for i in range(6)]))
             nilai = 0
