@@ -1,10 +1,15 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User
-from rest_framework.decorators import api_view
+from rest_framework import viewsets
+from rest_framework.decorators import api_view, action
 from rest_framework.response import Response
 from rest_framework.parsers import JSONParser, FileUploadParser, MultiPartParser
 from rest_framework.decorators import parser_classes
+
+
 from .models import prestasi, mahasiswa
+from .serializers import PrestasiSerializer
+
 from datetime import date, datetime
 from rest_framework.authtoken.models import Token
 import json
@@ -16,29 +21,42 @@ def handle_uploaded_file(f):
         for chunk in f.chunks():
             destination.write(chunk)
 
-@api_view(['POST'])
-def insertPrestasi(request):
-    prestasiinsert = prestasi.objects.create(nama_event=request.data['nama_event'],
-                                  url_kegiatan=request.data['url_kegiatan'],
-                                  penyelenggara=request.data['penyelenggara'],
-                                  lingkup_tingkat=request.data['lingkup_tingkat'],
-                                  jumlah_negara=request.data['jumlah_negara'],
-                                  kategori=request.data['kategori'],
-                                  prestasi_diraih=request.data['prestasi_diraih'],
-                                  ekuivalensi=request.data['ekuivalensi'],
-                                  tempat=request.data['tempat'],
-                                  tanggal_mulai=datetime.strptime(request.data['tanggal_mulai'], '%Y-%m-%d'),
-                                  tanggal_selesai=datetime.strptime(request.data['tanggal_selesai'], '%Y-%m-%d'),
-                                  deskripsi=request.data['deskripsi'],
-                                  foto_kegiatan=request.data['foto_kegiatan'],
-                                  bukti=request.data['bukti'],
-                                  tim_individu=request.data['tim_individu'],
-                                  jenis_prestasi=request.data['jenis_prestasi'])
-    if request.data['tim_individu'] == 'tim':
-        for value in json.loads(request.data['anggota']):
-            user_profile = get_user_profiles(value)
-            mahasiswa.objects.create(nim=user_profile['idMahasiswa'], prodi=user_profile['prodi']['idProdi'])
-            prestasiinsert.mahasiswa.add(mahasiswa.objects.get(nim=user_profile['idMahasiswa']))
-    handle_uploaded_file(request.data['foto_kegiatan'])
-    handle_uploaded_file(request.data['bukti'])
-    return Response()
+class PrestasiMahasiswa(viewsets.ModelViewSet):
+    queryset = prestasi.objects.order_by('pk')
+    serializer_class = PrestasiSerializer
+    parser_classes = [MultiPartParser, JSONParser]
+
+    @action(methods=['GET'], detail=False)
+    def get_list(self, request):
+        queryset = self.queryset.all()
+        serializer = PrestasiSerializer(queryset, many=True)
+        return Response(serializer.data)
+
+    @action(methods=['POST'], detail=False)
+    def insertPrestasi(request):
+        prestasiinsert = prestasi.objects.create(nama_event=request.data['nama_event'],
+                                                 url_kegiatan=request.data['url_kegiatan'],
+                                                 penyelenggara=request.data['penyelenggara'],
+                                                 lingkup_tingkat=request.data['lingkup_tingkat'],
+                                                 jumlah_negara=request.data['jumlah_negara'],
+                                                 kategori=request.data['kategori'],
+                                                 prestasi_diraih=request.data['prestasi_diraih'],
+                                                 ekuivalensi=request.data['ekuivalensi'],
+                                                 tempat=request.data['tempat'],
+                                                 tanggal_mulai=datetime.strptime(request.data['tanggal_mulai'],
+                                                                                 '%Y-%m-%d'),
+                                                 tanggal_selesai=datetime.strptime(request.data['tanggal_selesai'],
+                                                                                   '%Y-%m-%d'),
+                                                 deskripsi=request.data['deskripsi'],
+                                                 foto_kegiatan=request.data['foto_kegiatan'],
+                                                 bukti=request.data['bukti'],
+                                                 tim_individu=request.data['tim_individu'],
+                                                 jenis_prestasi=request.data['jenis_prestasi'])
+        if request.data['tim_individu'] == 'tim':
+            for value in json.loads(request.data['anggota']):
+                user_profile = get_user_profiles(value)
+                mahasiswa.objects.create(nim=user_profile['idMahasiswa'], prodi=user_profile['prodi']['idProdi'])
+                prestasiinsert.mahasiswa.add(mahasiswa.objects.get(nim=user_profile['idMahasiswa']))
+        handle_uploaded_file(request.data['foto_kegiatan'])
+        handle_uploaded_file(request.data['bukti'])
+        return Response()

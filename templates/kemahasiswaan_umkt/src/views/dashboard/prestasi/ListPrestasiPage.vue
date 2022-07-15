@@ -6,9 +6,9 @@
           <thead class="border-b-4">
           <tr>
             <th>No</th>
-            <th>Email</th>
-            <th>Subject</th>
-            <th>Date</th>
+            <th>Mahasiswa</th>
+            <th>Event</th>
+            <th>Penyelenggara</th>
           </tr>
           </thead>
           <tbody>
@@ -29,11 +29,25 @@
 
 <script>
 import MacCardComponent from "@/components/widget/MacCardComponent";
+import axios from "axios";
 
 export default {
   name: "ListPrestasiPage",
   components: {
     MacCardComponent
+  },
+  data() {
+    return {
+      data: null,
+    }
+  },
+  methods: {
+    getList: function () {
+      axios.get(process.env.VUE_APP_BASE_URL + "/prestasi/get_list")
+          .then(resp => {
+            console.log(resp)
+          })
+    }
   }
 }
 </script>
