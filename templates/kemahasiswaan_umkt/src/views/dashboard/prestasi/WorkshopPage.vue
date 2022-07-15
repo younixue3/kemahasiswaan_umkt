@@ -173,6 +173,40 @@
               </table>
             </div>
           </div>
+          <div v-if="tim_individu === 'individu'">
+            <label>Mahasiswa</label>
+            <div class="rounded-md py-4 bg-white">
+              <table class="table-auto w-full">
+                <thead class="border-b border-gray-300 rounded-xl">
+                <tr>
+                  <th>NIM</th>
+                  <th>Nama</th>
+                  <th class="w-9">Aksi</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr v-for="(item, index) in this.$store.state.mahasiswa" v-bind:key="index">
+                  <td>
+                    <input @keyup.enter="insertNim(index, item.nim)"
+                           class="bg-gray-100 focus:bg-white w-full py-2 pl-5 pr-3 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 font-semibold"
+                           type="text" v-model="item.nim">
+                  </td>
+                  <td>
+                    <input disabled
+                           class="bg-gray-100 focus:bg-white w-full py-2 pl-5 pr-3 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 font-semibold"
+                           type="text" v-model="item.nama">
+                  </td>
+                  <td class="px-1">
+                    <button @click="deleteMahasiswa(index)"
+                            class="bg-rose-500 transform focus:scale-110 transition duration-200 text-white text-center rounded-md shadow-md focus:shadow-lg px-1.5">
+                      <font-awesome-icon icon="fas fa-minus"/>
+                    </button>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
           <div class="col-span-2">
             <button @click="submitForm"
                     class="bg-emerald-500 transform focus:scale-110 transition duration-200 text-white text-center rounded-md shadow-md focus:shadow-lg px-1.5">
@@ -246,7 +280,9 @@ export default {
       }
     },
     deleteMahasiswa: function (key) {
-      this.$store.commit('deleteMahasiswa', key)
+      if (key != 0) {
+        this.$store.commit('deleteMahasiswa', key)
+      }
     },
     submitForm: function () {
       const formData = new FormData()
@@ -267,8 +303,8 @@ export default {
       formData.append('tim_individu', this.tim_individu)
       formData.append('token', this.$store.state.auth.token)
       formData.append('anggota', JSON.stringify(this.anggota))
-      formData.append('jenis_prestasi', 'seminar')
-      axios.post(process.env.VUE_APP_BASE_URL + "/prestasi/insert-prestasi", formData, {
+      formData.append('jenis_prestasi', 'organisasi')
+      axios.post(process.env.VUE_APP_BASE_URL + "/prestasi/insert-prestasi", {formData}, {
       })
       .then(resp => {
         console.log(resp)

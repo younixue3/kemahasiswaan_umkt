@@ -1,66 +1,87 @@
 <template>
-  <div id="mobile-menu"
-       class="h-full md:h-auto text-gray-800 z-40 fixed duration-300 bg-gray-100 shadow-md md:static"
-       @mouseenter="CollapsedHover()" @mouseleave="CollapsedHover()"
-       :class="collapsed ? 'w-60 md:w-80 lg:w-80' : 'w-0 md:w-11 lg:w-11 md:hover:w-44'">
-    <div class="font-bold text-xl h-16 pr-2 md:pr-0 flex relative z-50">
-      <div class="flex transition-all ease-in-out duration-500" :class="collapsed ? 'w-full' : 'w-0'">
-        <img class="min-h-5 h-5 mx-3 my-auto" src="" alt="">
-        <a
-            class="my-auto text-2xl align-middle overflow-hidden truncate font-light">
-          Dashboard
-        </a>
-      </div>
-      <button @click="CloseBar()" type="button"
-              class="transition-all bg-gray-700 shrink-0 -mr-3 w-10 h-10 text-white rounded-lg ease-in-out duration-500 z-50 m-auto -mr-5">
+  <div class="flex w-full">
+    <div id="mobile-menu"
+         class="h-full md:h-auto text-gray-800 z-40 fixed duration-300 bg-gray-100 shadow-md md:static overflow-hidden"
+         @mouseenter="CollapsedHover()" @mouseleave="CollapsedHover()"
+         :class="collapsed ? 'w-0 md:w-80 lg:w-80' : 'w-72 md:w-11 lg:w-11 md:hover:w-44'">
+      <div class="font-bold text-xl h-16 pr-2 md:pr-0 flex relative z-50">
+        <div class="flex transition-all ease-in-out duration-500" :class="collapsed ? 'w-full' : 'md:w-0'">
+          <img class="min-h-5 h-5 mx-3 my-auto" src="" alt="">
+          <a
+              class="my-auto text-2xl align-middle overflow-hidden truncate font-light">
+            Dashboard
+          </a>
+        </div>
+        <button @click="CloseBar()" type="button"
+              class="transition-all shrink-0 mr-0 w-10 h-10 text-black rounded-lg ease-in-out duration-500 z-50 m-auto md:hidden">
         <!-- Heroicon name: outline/x -->
         <font-awesome-icon :icon="collapsed ? 'fas fa-bars' : 'fas fa-times'"/>
       </button>
-    </div>
-    <div class="text-lg font-normal tracking-tight">
-      <div class="py-5 px-1 py-2 grid grid-cols-1">
-        <NavbarDropdownComponent height="h-[7.3rem]">
-          <template #group-icon>
-            <font-awesome-icon icon="fas fa-graduation-cap"/>
-          </template>
-          <template #group>
-            <div>Prestasi Mahasiswa</div>
-          </template>
-          <template #item>
-            <router-link to="/prestasi-penghargaan" class="px-2 rounded-md overflow-hidden">
-              <button class="my-1 cursor-pointer flex w-52">
-                <div class="mr-2">
-                  <font-awesome-icon icon="fas fa-medal"/>
+      </div>
+      <div class="text-lg font-normal tracking-tight">
+        <div class="py-5 px-1 py-2 grid grid-cols-1">
+          <NavbarDropdownComponent>
+            <template #group-icon>
+              <font-awesome-icon icon="fas fa-graduation-cap"/>
+            </template>
+            <template #group>
+              <div>Prestasi Mahasiswa</div>
+            </template>
+            <template #item>
+              <router-link to="/prestasi-penghargaan" class="px-2 rounded-md overflow-hidden">
+                <button class="my-1 cursor-pointer flex w-52">
+                  <div class="mr-2">
+                    <font-awesome-icon icon="fas fa-medal"/>
+                  </div>
+                  <span class="">Penghargaan</span>
+                </button>
+              </router-link>
+              <router-link to="/prestasi-seminar" class="px-2 rounded-md overflow-hidden">
+                <button class="my-1 cursor-pointer flex w-52">
+                  <div class="mr-2">
+                    <font-awesome-icon icon="fas fa-chalkboard-teacher"/>
+                  </div>
+                  <span>Seminar/Workshop/Keahlian</span></button>
+              </router-link>
+              <router-link to="/prestasi-organisasi" class="px-2 rounded-md overflow-hidden">
+                <button class="my-1 cursor-pointer flex w-52">
+                  <div class="mr-2">
+                    <font-awesome-icon icon="fas fa-sitemap"/>
+                  </div>
+                  <span>Organisasi/Kepanitiaan</span></button>
+              </router-link>
+              <router-link to="/list-prestasi" class="px-2 rounded-md overflow-hidden">
+                <button class="my-1 cursor-pointer flex w-52">
+                  <div class="mr-2">
+                    <font-awesome-icon icon="fas fa-sitemap"/>
+                  </div>
+                  <span>List Prestasi</span></button>
+              </router-link>
+            </template>
+          </NavbarDropdownComponent>
+          <div @click="logout" class="py-0.5 rounded-xl overflow-hidden truncate cursor-pointer">
+            <div class="hover:bg-gray-200 px-2 pt-1 rounded-lg">
+              <div class="flex w-52">
+                <div class="w-1/6">
+                  <font-awesome-icon icon="fas fa-sign-out"/>
                 </div>
-                <span class="">Penghargaan</span>
-              </button>
-            </router-link>
-            <router-link to="/prestasi-seminar" class="px-2 rounded-md overflow-hidden">
-              <button class="my-1 cursor-pointer flex w-52">
-                <div class="mr-2">
-                  <font-awesome-icon icon="fas fa-chalkboard-teacher"/>
-                </div>
-                <span>Seminar/Workshop/Keahlian</span></button>
-            </router-link>
-            <router-link to="/prestasi-organisasi" class="px-2 rounded-md overflow-hidden">
-              <button class="my-1 cursor-pointer flex w-52">
-                <div class="mr-2">
-                  <font-awesome-icon icon="fas fa-sitemap"/>
-                </div>
-                <span>Organisasi/Kepanitiaan</span></button>
-            </router-link>
-          </template>
-        </NavbarDropdownComponent>
-        <div @click="logout" class="py-0.5 rounded-xl overflow-hidden truncate cursor-pointer">
-          <div class="hover:bg-gray-200 px-2 pt-1 rounded-lg">
-            <div class="flex w-52">
-              <div class="w-1/6">
-                <font-awesome-icon icon="fas fa-sign-out"/>
+                <span>Logout</span>
               </div>
-              <span>Logout</span>
             </div>
           </div>
         </div>
+      </div>
+    </div>
+    <div class="w-full">
+      <div class="bg-gray-200 w-full h-14">
+        <button @click="CloseBar()" type="button"
+                class="transition-all shrink-0 -mr-3 w-14 h-14 text-xl text-black ease-in-out duration-500 z-50 m-auto -mr-5">
+          <!-- Heroicon name: outline/x -->
+          <font-awesome-icon :icon="collapsed ? 'fas fa-bars' : 'fas fa-times'"/>
+        </button>
+      </div>
+      <div class="w-full">
+        <slot></slot>
       </div>
     </div>
   </div>
@@ -86,9 +107,11 @@ export default {
       if (this.collapsed === true) {
         this.hover = false
         this.collapsed = false
+        document.body.classList.add('removescrollbar', 'overflow-hidden')
       } else {
         this.hover = true
         this.collapsed = true
+        document.body.classList.remove('removescrollbar', 'overflow-hidden')
       }
     },
     CollapsedHover: function () {

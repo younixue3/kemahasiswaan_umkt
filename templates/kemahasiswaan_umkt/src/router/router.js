@@ -7,6 +7,7 @@ import WorkshopPage from "@/views/dashboard/prestasi/WorkshopPage";
 import OrganisasiPage from "@/views/dashboard/prestasi/OrganisasiPage";
 import LoginPage from "@/views/auth/LoginPage";
 import store from '../store/vuex';
+import ListPrestasiPage from "@/views/dashboard/prestasi/ListPrestasiPage";
 
 Vue.use(VueRouter)
 
@@ -36,6 +37,11 @@ const routes = [
         component: OrganisasiPage,
           meta: { requiresAuth: true },
       },
+      {
+        path: 'list-prestasi',
+        component: ListPrestasiPage,
+        meta: {requiresAuth: true}
+      }
       // {
       //   path: '/form',
       //   component: FormPage,

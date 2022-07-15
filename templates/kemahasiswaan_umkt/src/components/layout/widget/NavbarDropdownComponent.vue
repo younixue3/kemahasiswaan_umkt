@@ -14,7 +14,7 @@
                     </span>
                 </div>
             </div>
-            <ul class="bg-gray-300 text-sm rounded-lg my-2 overflow-hidden truncate transition-all ease-in-out" :class="dropactive ? height : 'h-0'">
+            <ul class="bg-gray-300 text-sm rounded-lg my-2 overflow-hidden truncate transition-all ease-in-out" :class="dropactive ? 'h-full' : 'h-0'">
               <div class="grid grid-cols-1 gap-2 p-0.5">
                 <slot name="item"></slot>
               </div>
